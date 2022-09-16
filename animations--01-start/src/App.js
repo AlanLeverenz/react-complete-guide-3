@@ -32,7 +32,11 @@ class App extends Component {
           Toggle
         </button>
         <br />
-        <Transition in={this.state.showBlock} timeout={1000}>
+        <Transition
+          in={this.state.showBlock}
+          timeout={1000}
+          mountOnEnter
+          unmountOnExit>
           {state => (
             <div
               style={{
@@ -41,7 +45,7 @@ class App extends Component {
                 height: 100,
                 margin: 'auto',
                 transition: 'opacity 1s ease-out',
-                opacity: state === 'exited' ? 0 : 1
+                opacity: state === 'exiting' ? 0 : 1
               }}
             />
           )}
