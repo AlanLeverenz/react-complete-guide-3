@@ -17,8 +17,8 @@ const modal = (props) => {
             {state => {
                 const cssClasses = [
                     "Modal",
-                    state === 'entering'
-                        ? 'ModalOpen'
+                    state === "entering"
+                        ? "ModalOpen"
                         : state === "exiting" ? "ModalClosed" : null
                 ]
                 return (
