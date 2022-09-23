@@ -19,7 +19,12 @@ const modal = (props) => {
             unmountOnExit
             in={props.show}
             timeout={animationTiming}
-            classNames>
+            classNames={{
+                enter: '',
+                enterActive: 'ModalOpen',
+                exit: '',
+                existActive: 'ModalClose'
+            }}>
             <div className="Modal">
                 <h1>A Modal</h1>
                 <button className="Button" onClick={props.closed}>
