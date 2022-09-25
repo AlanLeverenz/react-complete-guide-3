@@ -27,19 +27,23 @@ class List extends Component {
 
     render() {
         const listItems = this.state.items.map((item, index) => (
-            <CSSTransition>
+            <CSSTransition
+                key={index}
+                classNames="fade"
+                timeout={300}>
                 <li
-                    key={index}
                     className="ListItem"
-                    onClick={() => this.removeItemHandler(index)}
-                >
-                    {item}</li>
+                    onClick={() => this.removeItemHandler(index)}>
+                    {item}
+                </li>
             </CSSTransition>
         ));
 
         return (
             <div>
-                <button className="Button" onClick={this.addItemHandler}>Add Item</button>
+                <button className="Button" onClick={this.addItemHandler}>
+                    Add Item
+                </button>
                 <p>Click Item to Remove.</p>
                 <TransitionGroup
                     component="ul"
