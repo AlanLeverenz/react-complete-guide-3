@@ -42,6 +42,7 @@ export const useStore = () => {
 
 export const initStore = (userActions, initialState) => {
   if (initialState) {
+    // merge new globalState with current 
     globalState = { ...globalState, ...initialState };
   }
   // merging new and current actions
