@@ -26,7 +26,7 @@ export const useStore = () => {
   listeners.push(setState);
 
   // useEffect controls when something mounts in the DOM
-  // is mounting this setState
+  // is mounting this setState when the component runs
   useEffect(() => {
     listeners.push(setState);
 
