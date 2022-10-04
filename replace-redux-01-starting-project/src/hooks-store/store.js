@@ -11,8 +11,8 @@ export const useStore = () => {
   const setState = useState(globalState)[1];
 
   // get actions
-  const dispatch = actionIdentifier => {
-    const newState = actions[actionIdentifier](globalState);
+  const dispatch = (actionIdentifier, payload) => {
+    const newState = actions[actionIdentifier](globalState, payload);
     // merges old state and new state
     globalState = { ...globalState, ...newState };
 
