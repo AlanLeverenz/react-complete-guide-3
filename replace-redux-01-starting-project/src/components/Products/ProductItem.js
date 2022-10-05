@@ -9,10 +9,11 @@ import './ProductItem.css';
 // import { ProductsContext } from '../../context/products-context';
 
 
-const ProductItem = props => {
+const ProductItem = React.memo(props => {
   // const dispatch = useDispatch();
   // const toggleFav = useContext(ProductsContext).toggleFav;
-  const dispatch = useStore()[1];
+  console.log('Rendering');
+  const dispatch = useStore(false)[1];
 
   const toggleFavHandler = () => {
     // dispatch(toggleFav(props.id));
@@ -34,6 +35,6 @@ const ProductItem = props => {
       </div>
     </Card>
   );
-};
+});
 
 export default ProductItem;

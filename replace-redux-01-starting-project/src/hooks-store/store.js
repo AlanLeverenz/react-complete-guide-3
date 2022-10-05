@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 
+// available to all components that import the store
 let globalState = {};
 let listeners = [];
 let actions = {};
 
 // custom hook
-export const useStore = () => {
+export const useStore = (shouldListen = true) => {
   // not recreated here, already defined
   // interested in the second useState value (updating function)
   const setState = useState(globalState)[1];
@@ -27,15 +28,22 @@ export const useStore = () => {
 
   // useEffect controls when something mounts in the DOM
   // is mounting this setState when the component runs
+  // and then dismounts it
   useEffect(() => {
-    listeners.push(setState);
+    if (shouldListen) {
+      listeners.push(setState);
+    }
+
 
     // filter to keep all listeners not equal to the existing setState
     return () => {
-      listeners = listeners.filter(li => li !== setState);
-    }
+      if (shouldListen) {
+        listeners = listeners.filter(li => li !== setState);
+      }
+    };
     // will only run once since React will not change it for a given component
-  }, [setState]);
+    // avoids infinite loop
+  }, [setState, shouldListen]);
 
   return [globalState, dispatch]; //the new state and the action for it
 };
