@@ -34,7 +34,6 @@ export const useStore = (shouldListen = true) => {
       listeners.push(setState);
     }
 
-
     // filter to keep all listeners not equal to the existing setState
     return () => {
       if (shouldListen) {
