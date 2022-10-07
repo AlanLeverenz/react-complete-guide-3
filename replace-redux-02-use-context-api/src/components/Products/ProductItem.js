@@ -10,6 +10,7 @@ const ProductItem = props => {
 
   const toggleFavHandler = () => {
     toggleFav(props.id);
+    console.log(`toggleFav = ` + toggleFav(props.id));
   };
 
   return (
@@ -29,3 +30,4 @@ const ProductItem = props => {
 };
 
 export default ProductItem;
+
