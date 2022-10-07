@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export const ProductsContext = React.createContext({
   products: [],
-  toggleFav: (id) => {}
+  toggleFav: (id) => { }
 });
 
 export default props => {
@@ -46,6 +46,7 @@ export default props => {
     });
   };
 
+  // every child within the ProductsContext will have access to the productsList
   return (
     <ProductsContext.Provider
       value={{ products: productsList, toggleFav: toggleFavorite }}

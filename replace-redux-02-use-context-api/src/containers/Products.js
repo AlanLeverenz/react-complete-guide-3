@@ -5,6 +5,7 @@ import { ProductsContext } from '../context/products-context';
 import './Products.css';
 
 const Products = props => {
+  // this is recreated every time something changes in the list
   const productList = useContext(ProductsContext).products;
   return (
     <ul className="products-list">
