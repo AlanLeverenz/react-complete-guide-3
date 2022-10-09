@@ -6,6 +6,7 @@ import './Products.css';
 
 const Products = props => {
   // this is recreated every time something changes in the list
+  // .products is a key value
   const productList = useContext(ProductsContext).products;
   return (
     <ul className="products-list">

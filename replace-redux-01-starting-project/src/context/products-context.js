@@ -5,6 +5,7 @@ export const ProductsContext = React.createContext({
   toggleFav: (id) => { }
 });
 
+// exporting a functional component
 export default props => {
   const [productsList, setProductsList] = useState([
     {
@@ -49,6 +50,7 @@ export default props => {
     })
   }
 
+  // value is a key with values for the Provider
   return (
     <ProductsContext.Provider value={{ products: productsList, toggleFav: toggleFavorite }}>
       {props.children}

@@ -5,6 +5,7 @@ export const ProductsContext = React.createContext({
   toggleFav: (id) => { }
 });
 
+// a functional component
 export default props => {
   const [productsList, setProductsList] = useState([
     {
@@ -35,7 +36,8 @@ export default props => {
 
   const toggleFavorite = productId => {
     setProductsList(currentProdList => {
-      const prodIndex = currentProdList.findIndex(p => p.id === productId);
+      const prodIndex = currentProdList.findIndex(
+        p => p.id === productId);
       const newFavStatus = !currentProdList[prodIndex].isFavorite;
       console.log(newFavStatus);
       const updatedProducts = [...currentProdList];
@@ -48,9 +50,13 @@ export default props => {
   };
 
   // every child within the ProductsContext will have access to the productsList
+  // when the state changes all listeners will be updated
   return (
     <ProductsContext.Provider
-      value={{ products: productsList, toggleFav: toggleFavorite }}
+      value={{
+        products: productsList,
+        toggleFav: toggleFavorite
+      }}
     >
       {props.children}
     </ProductsContext.Provider>

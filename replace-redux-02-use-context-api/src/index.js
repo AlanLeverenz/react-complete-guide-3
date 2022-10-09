@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import ProductsProvider from './context/products-context';
 
+// placing ProductsProvider here allows any child component to listen to it
 ReactDOM.render(
   <ProductsProvider>
     <BrowserRouter>

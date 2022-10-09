@@ -10,7 +10,8 @@ const ProductItem = props => {
 
   const toggleFavHandler = () => {
     toggleFav(props.id);
-    console.log(`toggleFav = ` + toggleFav(props.id));
+    // be careful not to call a function in console.log
+    console.log(`toggleFav = ` + props.id);
   };
 
   return (
