@@ -15,8 +15,9 @@ export const useStore = () => {
   // interested in the second value
   const [setState] = useState(globalState)[1];
 
-  const dispatch = actionIdentifier => {
-    const newState = actions[actionIdentifier](globalState);
+  // also forwards a value with the action
+  const dispatch = (actionIdentifier, payload) => {
+    const newState = actions[actionIdentifier](globalState, payload);
     // updates the globalState with the newState returned by the action
     globalState = { ...globalState, ...newState };
 
@@ -31,7 +32,7 @@ export const useStore = () => {
   useEffect(() => {
     listeners.push(setState);
 
-    // cleanup function when component is removed
+    // cleanup function removes new listener when component unmounts
     return () => {
       listeners = listeners.filter(li => li !== setState);
     }
@@ -42,7 +43,7 @@ export const useStore = () => {
 
 };
 
-// allows state and actions to be defined and updated
+// allows state and actions to be defined and updated in products-store
 export const initStore = (userActions, initialState) => {
   if (initialState) {
     globalState = { ...globalState, ...initialState };
