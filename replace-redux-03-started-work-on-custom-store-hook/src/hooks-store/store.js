@@ -16,14 +16,14 @@ export const useStore = () => {
   const [setState] = useState(globalState)[1];
 
   const dispatch = actionIdentifier => {
-    const newState = actions[actionIdentifier](globalState)
+    const newState = actions[actionIdentifier](globalState);
+    // updates the globalState with the newState returned by the action
     globalState = { ...globalState, ...newState };
 
     // updating the listener will update components elsewhere
     for (const listener of listeners) {
       listener(globalState);
     }
-
   };
 
   // useState will not change setState value to avoid infinite loop
@@ -42,6 +42,7 @@ export const useStore = () => {
 
 };
 
+// allows state and actions to be defined and updated
 export const initStore = (userActions, initialState) => {
   if (initialState) {
     globalState = { ...globalState, ...initialState };
