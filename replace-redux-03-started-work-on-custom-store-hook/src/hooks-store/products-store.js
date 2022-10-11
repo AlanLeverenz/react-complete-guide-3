@@ -11,6 +11,7 @@ const configureStore = () => {
       const prodIndex = curState.products.findIndex(p => p.id === productId);
       // value is being reversed
       const newFavStatus = !curState.products[prodIndex].isFavorite;
+      // spread operator reveals the details of its objects
       const updatedProducts = [...curState.products];
       updatedProducts[prodIndex] = {
         ...curState.products[prodIndex],
