@@ -11,9 +11,20 @@ let actions = {};
 // when the state is updated, any component using it will re-render
 // same goes for custom hooks
 
-const useStore = () => {
+export const useStore = () => {
   // interested in the second value
   const [setState] = useState(globalState)[1];
+
+  const dispatch = actionIdentifier => {
+    const newState = actions[actionIdentifier](globalState)
+    globalState = { ...globalState, ...newState };
+
+    // updating the listener will update components elsewhere
+    for (const listener of listeners) {
+      listener(globalState);
+    }
+
+  };
 
   // useState will not change setState value to avoid infinite loop
   // useEffect to unmount a listener after it runs
@@ -26,4 +37,14 @@ const useStore = () => {
     }
   }, [setState]);
 
+  // similar to a redux reducer, returning new state and the action to dispatch
+  return [globalState, dispatch];
+
 };
+
+export const initStore = (userActions, initialState) => {
+  if (initialState) {
+    globalState = { ...globalState, ...initialState };
+  }
+  actions = { ...actions, ...userActions };
+}
