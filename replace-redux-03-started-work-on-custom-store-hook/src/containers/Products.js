@@ -4,9 +4,6 @@ import ProductItem from '../components/Products/ProductItem';
 import { useStore } from '../hooks-store/store';
 import './Products.css';
 
-// useStore gives access to the global store and the global dispatch function
-// get products key from initStore
-
 const Products = props => {
   const state = useStore()[0];
   return (
