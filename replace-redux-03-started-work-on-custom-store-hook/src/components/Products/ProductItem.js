@@ -6,7 +6,7 @@ import { useStore } from '../../hooks-store/store';
 
 const ProductItem = props => {
 
-  const dispatch = useStore()[1]
+  const dispatch = useStore()[1];
 
   const toggleFavHandler = () => {
     // toggleFav(props.id);
