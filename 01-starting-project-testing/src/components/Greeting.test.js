@@ -15,6 +15,21 @@ describe('Greeting component', () => {
     expect(helloWorldElement).toBeInTheDocument();
 
   });
+
+  test('renders good to see you if the button was NOT clicked', () => {
+    // Arrange
+    render(<Greeting />);
+
+    // Act
+    // nothing...
+
+    // Assert
+    const helloWorldElement = screen.getByText('Hello World!');
+    expect(helloWorldElement).toBeInTheDocument();
+
+  });
+
+
 });
 
 
