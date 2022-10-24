@@ -24,12 +24,10 @@ describe('Greeting component', () => {
     // nothing...
 
     // Assert
-    const helloWorldElement = screen.getByText('Hello World!');
-    expect(helloWorldElement).toBeInTheDocument();
+    const outputElement = screen.getByText('good to see you', { exact: false });
+    expect(outputElement).toBeInTheDocument();
 
   });
-
-
 });
 
 
