@@ -1,5 +1,5 @@
 const Output = props => {
-  return <p></p>
+  return <p>{props.children}</p>
 }
 
 export default Output;
