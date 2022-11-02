@@ -1,6 +1,6 @@
 // Primitives: number, string, boolean
 // Complex types: arrays, objects
-// Function types: parameters...
+// Function types: parameters
 
 // Primitives
 
@@ -41,3 +41,11 @@ let people: {
   name: string;
   age: number;
 }[];
+
+// Type Inference
+
+let course: string | number = 'React - The Complete Guide';
+
+course = 1234;
+
+// Union type
