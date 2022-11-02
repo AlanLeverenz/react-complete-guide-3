@@ -22,12 +22,13 @@ let hobbies: string[];
 
 hobbies = ['Sports', 'Cooking'];
 
-let person: {
+// Type Alias
+type Person = {
   name: string;
   age: number;
 };
 
-person = {
+let person = {
   name: 'Max',
   age: 32,
 };
@@ -37,15 +38,13 @@ person = {
 // }
 
 // an array of object
-let people: {
-  name: string;
-  age: number;
-}[];
+let people: Person[];
 
 // Type Inference
+// Union type
 
 let course: string | number = 'React - The Complete Guide';
 
 course = 1234;
 
-// Union type
+// Type alias
