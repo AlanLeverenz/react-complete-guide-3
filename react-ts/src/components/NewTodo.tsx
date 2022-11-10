@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRef } from 'react';
+import classes from './NewTodo.module.css';
 
 // () => describes the function and return type
 // void means there are no parameters
@@ -28,7 +29,7 @@ const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
   // JSX code
   // could be a MouseEvent if using "onClick"
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className={classes.form}>
       <label htmlFor='text'>Todo text</label>
       <input type='text' id='text' ref={todoTextInputRef} />
       <button>Add Todo</button>

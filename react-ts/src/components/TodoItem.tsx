@@ -1,8 +1,9 @@
 import React from 'react';
+import classes from './TodoItem.module.css';
 
 // use angle brackets to define the prop type for 'text'
 const TodoItem: React.FC<{ text: string }> = (props) => {
-  return <li>{props.text}</li>;
+  return <li className={classes.item}>{props.text}</li>;
 };
 
 export default TodoItem;
