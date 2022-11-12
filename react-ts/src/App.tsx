@@ -18,7 +18,12 @@ function App() {
   };
 
   // function is just a prop to be passed down
-  const removeTodoHandler = () => {};
+  /// the returned array includes items not matching the id
+  const removeTodoHandler = (todoId: string) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo) => todo.id !== todoId);
+    });
+  };
 
   // onAddTodo is defined in NewTodo as a prop.
   // App uses it to pass addTodoHandler to the component NewTodo.
