@@ -17,6 +17,8 @@ function App() {
     });
   };
 
+  // onAddTodo is defined in NewTodo as a prop.
+  // App uses it to pass addTodoHandler to the component NewTodo.
   return (
     <div>
       <NewTodo onAddTodo={addTodoHandler} />
