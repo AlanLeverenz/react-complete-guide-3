@@ -17,12 +17,15 @@ function App() {
     });
   };
 
+  // function is just a prop to be passed down
+  const removeTodoHandler = () => {};
+
   // onAddTodo is defined in NewTodo as a prop.
   // App uses it to pass addTodoHandler to the component NewTodo.
   return (
     <div>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos items={todos} onRemoveTodo={removeTodoHandler} />
     </div>
   );
 }
