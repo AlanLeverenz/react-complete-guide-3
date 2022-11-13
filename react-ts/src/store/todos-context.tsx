@@ -14,7 +14,8 @@ export const TodosContext = React.createContext<TodosContextObj>({
   removeTodo: (id: string) => {},
 });
 
-const TodosContextProvider: React.FC = (props) => {
+// had to explicity declare PropsWithChildren for React 18
+const TodosContextProvider: React.FC<React.PropsWithChildren> = (props) => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodoHandler = (todoText: string) => {
