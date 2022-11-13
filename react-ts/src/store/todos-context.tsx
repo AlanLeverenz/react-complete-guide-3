@@ -31,7 +31,6 @@ const TodosContextProvider: React.FC = (props) => {
     });
   };
 
-  // setting the type for the value object
   const contextValue: TodosContextObj = {
     items: todos,
     addTodo: addTodoHandler,
