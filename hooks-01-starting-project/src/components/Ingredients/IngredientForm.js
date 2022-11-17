@@ -47,6 +47,7 @@ const IngredientForm = React.memo(props => {
                   title: prevInputState.title
                 }))
               }
+              }
             />
           </div>
           <div className="ingredient-form__actions">
