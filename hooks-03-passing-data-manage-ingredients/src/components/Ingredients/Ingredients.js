@@ -15,13 +15,22 @@ const Ingredients = () => {
   };
 
   // the test is to write code that will enables you to remove an item by clicking on it.
+  // create the remove handler here and use it as a prop to the list component
+  const removeIngredientHandler = ingredientId => {
+    setUserIngredients(prevIngredients =>
+      prevIngredients.filter(ingredient => ingredient.id !== ingredientId)
+    );
+  };
+
   return (
     <div className="App">
       <IngredientForm onAddIngredient={addIngredientHandler} />
 
       <section>
         <Search />
-        <IngredientList ingredients={userIngredients} onRemoveItem={(id) => { }} />
+        <IngredientList
+          ingredients={userIngredients}
+          onRemoveItem={removeIngredientHandler} />
       </section>
     </div>
   );
