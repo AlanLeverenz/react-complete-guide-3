@@ -14,6 +14,7 @@ const Ingredients = () => {
     ]);
   };
 
+  // the test is to write code that will enables you to remove an item by clicking on it.
   return (
     <div className="App">
       <IngredientForm onAddIngredient={addIngredientHandler} />
