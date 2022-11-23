@@ -8,7 +8,7 @@ const Ingredients = () => {
   const [userIngredients, setUserIngredients] = useState([]);
 
   const addIngredientHandler = ingredient => {
-    fetch('https://react-hooks-update.firebaseio.com/ingredients.json', {
+    fetch('https://react-hooks-update-66cf8-default-rtdb.firebaseio.com/ingredients.json', {
       method: 'POST',
       body: JSON.stringify(ingredient),
       headers: { 'Content-Type': 'application/json' }
