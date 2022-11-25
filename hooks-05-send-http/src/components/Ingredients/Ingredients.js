@@ -9,6 +9,7 @@ const Ingredients = () => {
 
   // useEffect runs after the component has run
   // it creates "side effects" 
+  // useEffect with dependencies runs once (componentDidMount) when component renders
   useEffect(() => {
     fetch('https://react-hooks-update-66cf8-default-rtdb.firebaseio.com/ingredients.json')
       .then(response => {
@@ -26,6 +27,10 @@ const Ingredients = () => {
         setUserIngredients(loadedIngredients);
       });
   }, []);
+
+  useEffect(() => {
+    console.log("RENDERING INGREDIENTS", userIngredients);
+  }, [userIngredients]);
 
 
   const addIngredientHandler = ingredient => {
