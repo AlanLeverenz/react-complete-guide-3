@@ -24,6 +24,7 @@ const Ingredients = () => {
           amount: responseData[key].amount
         });
       }
+      // setUserIngredients(loadedIngredients);
     });
 
 
