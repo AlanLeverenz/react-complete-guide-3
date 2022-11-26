@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import IngredientForm from './IngredientForm';
 import IngredientList from './IngredientList';
@@ -32,9 +32,11 @@ const Ingredients = () => {
     console.log("RENDERING INGREDIENTS", userIngredients);
   }, [userIngredients]);
 
-  const filteredIngredientsHandler = filteredIngredients => {
+  // useCallback caches the function so it doesn't keep rendering 
+  // each time the component renders (updated by input from Search)
+  const filteredIngredientsHandler = useCallback(filteredIngredients => {
     setUserIngredients(filteredIngredients)
-  };
+  }, []);
 
 
   const addIngredientHandler = ingredient => {
