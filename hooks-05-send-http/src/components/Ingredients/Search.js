@@ -1,11 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Card from '../UI/Card';
 import './Search.css';
 
 const Search = React.memo(props => {
 
-  const [enteredFilter, setEnteredFilter] = useState('')
+  const [enteredFilter, setEnteredFilter] = useState('');
+
+  useEffect(() => {
+    fetch('https://react-hooks-update-66cf8-default-rtdb.firebaseio.com/ingredients.json')
+      .then(response => {
+        return response.json();
+      })
+      .then(responseData => {
+        const loadedIngredients = [];
+        for (const key in responseData) {
+          loadedIngredients.push({
+            id: key,
+            title: responseData[key].title,
+            amount: responseData[key].amount
+          });
+        }
+        // ... filter matching titles
+      });
+  }, [enteredFilter]);
+
   return (
     <section className="search">
       <Card>
