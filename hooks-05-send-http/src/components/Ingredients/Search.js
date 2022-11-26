@@ -8,12 +8,12 @@ const Search = React.memo(props => {
   const [enteredFilter, setEnteredFilter] = useState('');
 
   useEffect(() => {
-    const query = enteredFilter.length === 0 ? '' : `?orderby="title"&equalTo"${enteredFilter}"`;
-
+    const query =
+      enteredFilter.length === 0
+        ? ''
+        : `?orderBy="title"&equalTo="${enteredFilter}"`;
     fetch('https://react-hooks-update-66cf8-default-rtdb.firebaseio.com/ingredients.json' + query)
-      .then(response => {
-        return response.json();
-      })
+      .then(response => response.json())
       .then(responseData => {
         const loadedIngredients = [];
         for (const key in responseData) {
@@ -32,7 +32,11 @@ const Search = React.memo(props => {
       <Card>
         <div className="search-input">
           <label>Filter by Title</label>
-          <input type="text" value={enteredFilter} onChange={event => setEnteredFilter(event.target.value)} />
+          <input
+            type="text"
+            value={enteredFilter}
+            onChange={event => setEnteredFilter(event.target.value)}
+          />
         </div>
       </Card>
     </section>
