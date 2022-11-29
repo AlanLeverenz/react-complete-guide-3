@@ -9,7 +9,7 @@ const Search = React.memo(props => {
   const inputRef = useRef();
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       // check if the enteredFilter is the same after 500 ms
       // enteredFilter is locked in when the time is set - the 'old' value
       // compares 'old' value with current value which is not locked in since
@@ -33,7 +33,11 @@ const Search = React.memo(props => {
             onLoadIngredients(loadedIngredients);
           });
       } // end if
-    }, 500) // end setTimeout
+    }, 500) // end setTimeout timer function
+    // the cleanup function runs when the component gets unmounted
+    return () => {
+      clearTimeout(timer);
+    };
   }, [enteredFilter, onLoadIngredients, inputRef]); // end useEffect
 
   return (
