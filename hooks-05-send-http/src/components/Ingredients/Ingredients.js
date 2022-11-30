@@ -44,7 +44,7 @@ const Ingredients = () => {
 
   const removeIngredientHandler = ingredientId => {
     setIsLoading(true);
-    fetch(`https://react-hooks-update-66cf8-default-rtdb.firebaseio.com/ingredients/${ingredientId}`,
+    fetch(`https://react-hooks-update-66cf8-default-rtdb.firebaseio.com/ingredients/${ingredientId}.json`,
       {
         method: 'DELETE',
         headers: {
