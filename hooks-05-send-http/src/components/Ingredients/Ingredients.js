@@ -25,7 +25,10 @@ const Ingredients = () => {
     fetch('https://react-hooks-update-66cf8-default-rtdb.firebaseio.com/ingredients.json', {
       method: 'POST',
       body: JSON.stringify(ingredient),
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*',
+      }
     })
       .then(response => {
         setIsLoading(false);
@@ -44,6 +47,10 @@ const Ingredients = () => {
     fetch(`https://react-hooks-update-66cf8-default-rtdb.firebaseio.com/ingredients/${ingredientId}`,
       {
         method: 'DELETE',
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
+        }
       }
     ).then(response => {
       setIsLoading(false);
@@ -53,12 +60,12 @@ const Ingredients = () => {
     }
     ).catch(err => {
       setError(error.message);
+      setIsLoading(false);
     });
   };
 
   const clearError = () => {
     setError(null);
-    setIsLoading(false);
   }
 
   return (
