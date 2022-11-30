@@ -56,9 +56,14 @@ const Ingredients = () => {
     });
   };
 
+  const clearError = () => {
+    setError(null);
+    setIsLoading(false);
+  }
+
   return (
     <div className="App">
-      {error && <ErrorModal>{error}</ErrorModal>}
+      {error && <ErrorModal onClose={clearError}>{error}</ErrorModal>}
       <IngredientForm
         onAddIngredient={addIngredientHandler}
         loading={isLoading}
