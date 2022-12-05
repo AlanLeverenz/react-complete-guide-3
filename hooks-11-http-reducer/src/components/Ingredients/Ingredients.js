@@ -33,6 +33,8 @@ const httpReducer = (curHttpState, action) => {
   }
 };
 
+// put reducers outside the Ingredients function
+
 const Ingredients = () => {
   const [userIngredients, dispatch] = useReducer(ingredientReducer, []);
   const [httpState, dispatchHttp] = useReducer(httpReducer, {
