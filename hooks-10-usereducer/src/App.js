@@ -1,9 +1,22 @@
 import React from 'react';
 
-import Ingredients from './components/Ingredients/Ingredients';
+import Card from './UI/Card';
+import './Auth.css';
 
-const App = props => {
-  return <Ingredients />;
+const Auth = props => {
+  const loginHandler = () => { };
+
+  return (
+    <div className="auth">
+      <Card>
+        <h2>You are not authenticated!</h2>
+        <p>Please log in to continue.</p>
+        <button onClick={loginHandler}>Log In</button>
+      </Card>
+    </div>
+  );
 };
 
-export default App;
+export default Auth;
+
+
