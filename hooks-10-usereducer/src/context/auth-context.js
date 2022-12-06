@@ -17,5 +17,7 @@ const AuthContextProvider = props => {
       value={{ login: loginHandler, isAuth: isAuthenticated }}>
       {props.children}
     </AuthContext.Provider>
-  )
-}
+  );
+};
+
+export default AuthContextProvider;
