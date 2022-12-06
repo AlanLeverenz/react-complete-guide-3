@@ -54,7 +54,7 @@ const Ingredients = () => {
 
   const addIngredientHandler = useCallback(ingredient => {
     dispatchHttp({ type: 'SEND' });
-    fetch('https://react-hooks-update.firebaseio.com/ingredients.json', {
+    fetch('https://react-hooks-update-66cf8-default-rtdb.firebaseio.com/ingredients.json', {
       method: 'POST',
       body: JSON.stringify(ingredient),
       headers: { 'Content-Type': 'application/json' }
@@ -78,7 +78,7 @@ const Ingredients = () => {
   const removeIngredientHandler = useCallback(ingredientId => {
     dispatchHttp({ type: 'SEND' });
     fetch(
-      `https://react-hooks-update.firebaseio.com/ingredients/${ingredientId}.json`,
+      `https://react-hooks-update-66cf8-default-rtdb.firebaseio.com/ingredients/${ingredientId}.json`,
       {
         method: 'DELETE'
       }
