@@ -1,5 +1,8 @@
 import React, { useReducer, useEffect, useCallback, useMemo } from 'react';
 
+// useMemo saves a value
+// useCallback saves a function so it isn't used again
+
 import IngredientForm from './IngredientForm';
 import IngredientList from './IngredientList';
 import ErrorModal from '../UI/ErrorModal';
@@ -99,6 +102,7 @@ const Ingredients = () => {
     dispatchHttp({ type: 'CLEAR' });
   }, []);
 
+  // dependencies tell React when to re-render
   const ingredientList = useMemo(() => {
     return (
       <IngredientList
