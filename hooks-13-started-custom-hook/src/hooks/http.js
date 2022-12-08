@@ -26,6 +26,8 @@ const httpReducer = (curHttpState, action) => {
   }
 };
 
+// each component the custom hooks runs in gets its own snapshot
+
 const useHttp = () => {
   const [httpState, dispatchHttp] = useReducer(httpReducer, {
     loading: false,
