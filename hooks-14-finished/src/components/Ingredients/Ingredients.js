@@ -32,6 +32,7 @@ const Ingredients = () => {
   } = useHttp();
 
   useEffect(() => {
+    console.log("RENDERING EFFECT");
     if (!isLoading && !error && reqIdentifer === 'REMOVE_INGREDIENT') {
       dispatch({ type: 'DELETE', id: reqExtra });
     } else if (!isLoading && !error && reqIdentifer === 'ADD_INGREDIENT') {
